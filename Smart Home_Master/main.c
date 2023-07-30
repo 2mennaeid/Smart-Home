@@ -6,16 +6,8 @@
  */ 
 
 
-//#include "APP/Master_Mode.h"
+#include "APP/Master_Mode.h"
 #include "MCAL/DIO/errorstate.h"
-#include "MCAL/DIO/Registers1.h"
-#include "MCAL/DIO/StdTypes.h"
-#include "MCAL/DIO/DIO_priv.h"
-#include "MCAL/DIO/DIO_confg.h"
-#include "MCAL/DIO/DI0_interface.h"
-#include "MCAL/Timer1/Timer1_Priv.h"
-#include "MCAL/Timer1/Timer1_Init.h"
-#include "HAL/Servo_Motor/Servo_Init.h"
 int main(void)
 {
   
