@@ -26,7 +26,6 @@
 #include "../HAL/LED/Led_priv.h"
 #include "../HAL/LED/Led_interface.h"
 #include "../HAL/Servo_Motor/Servo_Init.h"
-#include "../HAL/BUZZER/BUZ_Init.h"
 #include "util/delay.h"
 void Store_Information_InEEPROM()
 {
