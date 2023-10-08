@@ -27,7 +27,7 @@
 #include "../HAL/LED/Led_interface.h"
 #include "../HAL/Servo_Motor/Servo_Init.h"
 #include "../HAL/BUZZER/BUZ_Init.h"
-#include "util/delay.h"
+	
 void Store_Information_InEEPROM()
 {
 	char name[20] = "Menna Eid";
@@ -108,7 +108,7 @@ ES_t DoorLockSystem()
 	  Store_Information_InEEPROM();
 	  led_init(PORT_D,PIN6);
 	  led_init(PORT_D,PIN7);
-	  Servo_Init(Timer1_Prescaler_64,MODE_15,Timer1_NON_INVERTING);
+	  Servo_voidInit();
 	  LCD_enInit();
 	  char username[20];
 	  char password[10];
@@ -137,9 +137,10 @@ ES_t DoorLockSystem()
 		  led_of(PORT_D,PIN6,source);
 		  led_on(PORT_D,PIN7,source);
 		  // turn on servo motor 
-		  Servo_Speed(0.2);
+		  Servo_voidSetAngle(180);
 		  _delay_ms(3000);
-		  Servo_Speed(0);
+		   Servo_voidSetAngle(0);
+		  _delay_ms(2000);
 		  LCD_enSendCommand(0x01); // clear lcd
 		  LCD_goto(1,1);
 		  LCD_enuDisplayString(" Smart Home ");

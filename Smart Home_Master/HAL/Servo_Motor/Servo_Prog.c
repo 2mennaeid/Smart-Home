@@ -1,6 +1,6 @@
 /*
  * Servo_Prog.c
- *
+ * version : 2.0
  * Created: 7/25/2023 11:25:14 AM
  *  Author: Menna Eid
  */ 
@@ -13,17 +13,28 @@
 #include "../../MCAL/Timer1/Timer1_Priv.h"
 #include "../../MCAL/Timer1/Timer1_Init.h"
 #include "Servo_Init.h"
-void Servo_Init(TIMER1_PRESCALER enupres_val,TIMER1_SELECTMODE enuMode,Timer1_CompareOutMode enu_outputcompare)
+void Servo_voidInit()
 {
-	Timer1_SelectMode(enuMode);
-	Timer1FastPWM_SelectOutPutCompareMatch(enu_outputcompare);
-	Timer1_SelectPrescaler(enupres_val);
-	Timer1_FrequancyValue(50);
-}
-
-void Servo_Speed(f32 f32duty)
-{
-	Timer1_Fast_PWM(f32duty);
+	Timer1_voidSelectMode(MODE_15);
+	Timer1_voidSelectPrescaler(Timer1_Prescaler_8);
+	Timer1FastPWM_voidSelectOutPutCompareMatch(Timer1_NON_INVERTING,Timer1_NON_INVERTING);
+	Timer1_voidFastPWM_MODE15_SetOCRA(50);
 	DIO_SetPinDirection(PORT_D,PIN4,OUT);
 	DIO_SetPinDirection(PORT_D,PIN5,OUT);
+}
+
+void Servo_voidSetAngle(uint8_t Copy_u8angle)
+{
+	switch(Copy_u8angle)
+	{
+		case 0:
+		Timer1_FastPWM_Mode15_SetDuty(0.05);
+		break;
+		case 90:
+		Timer1_FastPWM_Mode15_SetDuty(0.075);
+		break;
+		case 180:
+		Timer1_FastPWM_Mode15_SetDuty(0.1);
+		break;
+	}
 }

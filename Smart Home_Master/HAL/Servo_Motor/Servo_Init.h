@@ -8,9 +8,11 @@
 
 #ifndef SERVO_INIT_H_
 #define SERVO_INIT_H_
-void Servo_Init(TIMER1_PRESCALER enupres_val,TIMER1_SELECTMODE enuMode,Timer1_CompareOutMode enu_outputcompare);
 
-void Servo_Speed(f32 f32duty);
+
+void Servo_voidInit();
+
+void Servo_voidSetAngle(uint8_t Copy_u8angle);
 
 
 
