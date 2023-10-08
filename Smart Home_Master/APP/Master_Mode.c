@@ -26,8 +26,12 @@
 #include "../HAL/LED/Led_priv.h"
 #include "../HAL/LED/Led_interface.h"
 #include "../HAL/Servo_Motor/Servo_Init.h"
+<<<<<<< HEAD
 #include "../HAL/BUZZER/BUZ_Init.h"
 	
+=======
+#include "util/delay.h"
+>>>>>>> 09ea2c79ec431e5ee3ad0486f4bee36ba8adc2a9
 void Store_Information_InEEPROM()
 {
 	char name[20] = "Menna Eid";
